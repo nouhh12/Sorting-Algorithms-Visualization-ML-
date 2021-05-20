@@ -263,21 +263,21 @@ quickSorttimes=[quickSorttimer(arr10,drawData)[0],quickSorttimer(arr100,drawData
 
 arraySizes=[10,100,1000]
 
-#Bubble Sort Poly Regression for 10k and 100k arrays
+#Bubble Sort Polynomial Regression for 10k and 100k arrays
 df1=pd.DataFrame(bubbleSorttimes,columns=['bs times'])
 df1_1=pd.DataFrame(arraySizes,columns=['Array sizes'])
 reg1=make_pipeline(PolynomialFeatures(2),LinearRegression())
 reg1.fit(df1_1,df1)
 bubbleSorttimes.extend([reg1.predict([[10000]]),reg1.predict([[100000]])])
 
-#Selection Sort Poly Regression for 10k and 100k arrays
+#Selection Sort Polynomial Regression for 10k and 100k arrays
 df2=pd.DataFrame(selectionSorttimes,columns=['ss times'])
 df2_1=pd.DataFrame(arraySizes,columns=['Array sizes'])
 reg2=make_pipeline(PolynomialFeatures(2),LinearRegression())
 reg2.fit(df2_1,df2)
 selectionSorttimes.extend([reg2.predict([[10000]]),reg2.predict([[100000]])])
 
-#Insertion Sort Poly Regression for 10k and 100k arrays
+#Insertion Sort Polynomial Regression for 10k and 100k arrays
 df3=pd.DataFrame(insertionSorttimes,columns=['is times'])
 df3_1=pd.DataFrame(arraySizes,columns=['Array sizes'])
 reg3=make_pipeline(PolynomialFeatures(2),LinearRegression())
@@ -342,7 +342,7 @@ def sort():
 
 def generate():
     global data
-    data=np.random.randint(100,size=(51))
+    data=np.random.randint(100,size=(50))
     drawData(data, ["#000000" for x in range(len(data))])
 
 # Sort button 
